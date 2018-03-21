@@ -30,9 +30,12 @@
 
       // Set here the base of the relative path
       // for all app views
-      function basepath(folder, uri) {
-        return !uri ? ('app/views/' + folder) : ('app/' + folder + '/templates/' + uri) ;
-      }
+      // function basepath(folder, uri) {
+      //   // return !uri ? ('app/views/' + folder) : ('app/' + folder + '/templates/' + uri) ;
+      //   return 'app/' + folder + '/templates/' + uri ;
+      // }
+
+      function basepath(folder, uri) { return `app/${folder}/templates/${uri}` }; 
 
       // Generates a resolve object by passing script names
       // previously configured in constant.APP_REQUIRES

@@ -28,7 +28,7 @@
           .state('app', {
               url: '/app',
               abstract: true,
-              templateUrl: helper.basepath('app.html'),
+              templateUrl: helper.basepath('layout', 'app.html'),
               resolve: helper.resolveFor('fastclick', 'modernizr', 'icons', 'screenfull', 'animo', 'sparklines', 'slimscroll', 'easypiechart', 'toaster', 'whirl')
           })
           .state('app.dashboard', {
@@ -56,7 +56,7 @@
           .state('app.widgets', {
               url: '/widgets',
               title: 'Widgets',
-              templateUrl: helper.basepath('widgets.html'),
+              templateUrl: helper.basepath('widgets', 'widgets.html'),
               resolve: helper.resolveFor('loadGoogleMapsJS', function() { return loadGoogleMaps(); }, 'ui.map')
           })
           .state('app.buttons', {

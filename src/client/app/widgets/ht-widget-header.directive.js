@@ -20,7 +20,7 @@
         'rightText': '@',
         'allowCollapse': '@'
       },
-      templateUrl: 'app/widgets/widget-header.html',
+      templateUrl: 'app/widgets/templates/widget-header.html',
       restrict: 'EA',
       link: link
     };
