@@ -324,115 +324,115 @@
           .state('app.contacts', {
               url: '/contacts',
               title: 'Contacts',
-              templateUrl: helper.basepath('contacts.html')
+              templateUrl: helper.basepath('extras', 'contacts.html')
           })
           .state('app.contact-details', {
               url: '/contact-details',
               title: 'Contact Details',
-              templateUrl: helper.basepath('contact-details.html')
+              templateUrl: helper.basepath('extras', 'contact-details.html')
           })
           .state('app.projects', {
               url: '/projects',
               title: 'Projects',
-              templateUrl: helper.basepath('projects.html')
+              templateUrl: helper.basepath('extras', 'projects.html')
           })
           .state('app.project-details', {
               url: '/project-details',
               title: 'Project Details',
-              templateUrl: helper.basepath('project-details.html')
+              templateUrl: helper.basepath('extras', 'project-details.html')
           })
           .state('app.team-viewer', {
               url: '/team-viewer',
               title: 'Team Viewer',
-              templateUrl: helper.basepath('team-viewer.html')
+              templateUrl: helper.basepath('extras', 'team-viewer.html')
           })
           .state('app.social-board', {
               url: '/social-board',
               title: 'Social Board',
-              templateUrl: helper.basepath('social-board.html')
+              templateUrl: helper.basepath('extras', 'social-board.html')
           })
           .state('app.vote-links', {
               url: '/vote-links',
               title: 'Vote Links',
-              templateUrl: helper.basepath('vote-links.html')
+              templateUrl: helper.basepath('extras', 'vote-links.html')
           })
           .state('app.bug-tracker', {
               url: '/bug-tracker',
               title: 'Bug Tracker',
-              templateUrl: helper.basepath('bug-tracker.html'),
+              templateUrl: helper.basepath('extras', 'bug-tracker.html'),
               resolve: helper.resolveFor('datatables')
           })
           .state('app.faq', {
               url: '/faq',
               title: 'FAQ',
-              templateUrl: helper.basepath('faq.html'),
+              templateUrl: helper.basepath('extras', 'faq.html'),
               resolve: helper.resolveFor('datatables')
           })
           .state('app.help-center', {
               url: '/help-center',
               title: 'Help Center',
-              templateUrl: helper.basepath('help-center.html')
+              templateUrl: helper.basepath('extras', 'help-center.html')
           })
           .state('app.followers', {
               url: '/followers',
               title: 'Followers',
-              templateUrl: helper.basepath('followers.html')
+              templateUrl: helper.basepath('extras', 'followers.html')
           })
           .state('app.settings', {
               url: '/settings',
               title: 'Settings',
-              templateUrl: helper.basepath('settings.html'),
+              templateUrl: helper.basepath('extras', 'settings.html'),
               resolve: helper.resolveFor('filestyle')
           })
           .state('app.plans', {
               url: '/plans',
               title: 'Plans',
-              templateUrl: helper.basepath('plans.html')
+              templateUrl: helper.basepath('extras', 'plans.html')
           })
           .state('app.file-manager', {
               url: '/file-manager',
               title: 'File Manager',
-              templateUrl: helper.basepath('file-manager.html'),
+              templateUrl: helper.basepath('extras', 'file-manager.html'),
               resolve: helper.resolveFor('filestyle')
           })
           .state('app.timeline', {
               url: '/timeline',
               title: 'Timeline',
-              templateUrl: helper.basepath('timeline.html')
+              templateUrl: helper.basepath('extras', 'timeline.html')
           })
           .state('app.calendar', {
               url: '/calendar',
               title: 'Calendar',
-              templateUrl: helper.basepath('calendar.html'),
+              templateUrl: helper.basepath('extras', 'calendar.html'),
               resolve: helper.resolveFor('moment', 'ui.calendar')
           })
           .state('app.invoice', {
               url: '/invoice',
               title: 'Invoice',
-              templateUrl: helper.basepath('invoice.html')
+              templateUrl: helper.basepath('extras', 'invoice.html')
           })
           .state('app.search', {
               url: '/search',
               title: 'Search',
-              templateUrl: helper.basepath('search.html'),
+              templateUrl: helper.basepath('extras', 'search.html'),
               resolve: helper.resolveFor('moment', 'localytics.directives', 'ui.bootstrap-slider')
           })
           .state('app.todo', {
               url: '/todo',
               title: 'Todo List',
-              templateUrl: helper.basepath('todo.html'),
+              templateUrl: helper.basepath('extras', 'todo.html'),
               controller: 'TodoController',
               controllerAs: 'todo'
           })
           .state('app.profile', {
               url: '/profile',
               title: 'Profile',
-              templateUrl: helper.basepath('profile.html'),
+              templateUrl: helper.basepath('extras', 'profile.html'),
               resolve: helper.resolveFor('loadGoogleMapsJS', function() { return loadGoogleMaps(); }, 'ui.map')
           })
           .state('app.code-editor', {
               url: '/code-editor',
-              templateUrl: helper.basepath('code-editor.html'),
+              templateUrl: helper.basepath('extras', 'code-editor.html'),
               controller: 'CodeEditorController',
               controllerAs: 'coder',
               resolve: {
@@ -447,7 +447,7 @@
           .state('app.template', {
               url: '/template',
               title: 'Blank Template',
-              templateUrl: helper.basepath('template.html')
+              templateUrl: helper.basepath('pages', 'template.html')
           })
           .state('app.documentation', {
               url: '/documentation',
@@ -460,42 +460,42 @@
           .state('app.forum', {
               url: '/forum',
               title: 'Forum',
-              templateUrl: helper.basepath('forum.html')
+              templateUrl: helper.basepath('extras', 'forum.html')
           })
           .state('app.forum-topics', {
               url: '/forum/topics/:catid',
               title: 'Forum Topics',
-              templateUrl: helper.basepath('forum-topics.html')
+              templateUrl: helper.basepath('extras', 'forum-topics.html')
           })
           .state('app.forum-discussion', {
               url: '/forum/discussion/:topid',
               title: 'Forum Discussion',
-              templateUrl: helper.basepath('forum-discussion.html')
+              templateUrl: helper.basepath('extras', 'forum-discussion.html')
           })
           // Blog
           // -----------------------------------
           .state('app.blog', {
               url: '/blog',
               title: 'Blog',
-              templateUrl: helper.basepath('blog.html'),
+              templateUrl: helper.basepath('extras', 'blog.html'),
               resolve: helper.resolveFor('angular-jqcloud')
           })
           .state('app.blog-post', {
               url: '/post',
               title: 'Post',
-              templateUrl: helper.basepath('blog-post.html'),
+              templateUrl: helper.basepath('extras', 'blog-post.html'),
               resolve: helper.resolveFor('angular-jqcloud')
           })
           .state('app.articles', {
               url: '/articles',
               title: 'Articles',
-              templateUrl: helper.basepath('blog-articles.html'),
+              templateUrl: helper.basepath('extras', 'blog-articles.html'),
               resolve: helper.resolveFor('datatables')
           })
           .state('app.article-view', {
               url: '/article/:id',
               title: 'Article View',
-              templateUrl: helper.basepath('blog-article-view.html'),
+              templateUrl: helper.basepath('extras', 'blog-article-view.html'),
               resolve: helper.resolveFor('ui.select', 'summernote')
           })
           // eCommerce
@@ -503,29 +503,29 @@
           .state('app.orders', {
               url: '/orders',
               title: 'Orders',
-              templateUrl: helper.basepath('ecommerce-orders.html'),
+              templateUrl: helper.basepath('extras', 'ecommerce-orders.html'),
               resolve: helper.resolveFor('datatables')
           })
           .state('app.order-view', {
               url: '/order-view',
               title: 'Order View',
-              templateUrl: helper.basepath('ecommerce-order-view.html')
+              templateUrl: helper.basepath('extras', 'ecommerce-order-view.html')
           })
           .state('app.products', {
               url: '/products',
               title: 'Products',
-              templateUrl: helper.basepath('ecommerce-products.html'),
+              templateUrl: helper.basepath('extras', 'ecommerce-products.html'),
               resolve: helper.resolveFor('datatables')
           })
           .state('app.product-view', {
               url: '/product/:id',
               title: 'Product View',
-              templateUrl: helper.basepath('ecommerce-product-view.html')
+              templateUrl: helper.basepath('extras', 'ecommerce-product-view.html')
           })
           .state('app.checkout', {
               url: '/checkout',
               title: 'Checkout',
-              templateUrl: helper.basepath('ecommerce-checkout.html')
+              templateUrl: helper.basepath('extras', 'ecommerce-checkout.html')
           })
           // Mailbox
           // -----------------------------------
@@ -533,23 +533,23 @@
               url: '/mailbox',
               title: 'Mailbox',
               abstract: true,
-              templateUrl: helper.basepath('mailbox.html')
+              templateUrl: helper.basepath('extras', 'mailbox.html')
           })
           .state('app.mailbox.folder', {
               url: '/folder/:folder',
               title: 'Mailbox',
-              templateUrl: helper.basepath('mailbox-inbox.html')
+              templateUrl: helper.basepath('extras', 'mailbox-inbox.html')
           })
           .state('app.mailbox.view', {
               url : '/{mid:[0-9]{1,4}}',
               title: 'View mail',
-              templateUrl: helper.basepath('mailbox-view.html'),
+              templateUrl: helper.basepath('extras', 'mailbox-view.html'),
               resolve: helper.resolveFor('ngWig')
           })
           .state('app.mailbox.compose', {
               url: '/compose',
               title: 'Mailbox',
-              templateUrl: helper.basepath('mailbox-compose.html'),
+              templateUrl: helper.basepath('extras', 'mailbox-compose.html'),
               resolve: helper.resolveFor('ngWig')
           })
           //
@@ -590,7 +590,7 @@
           // -----------------------------------
           .state('page', {
               url: '/page',
-              templateUrl: 'app/pages/page.html',
+              templateUrl: helper.basepath('pages', 'page.html'),
               resolve: helper.resolveFor('modernizr', 'icons'),
               controller: ['$rootScope', function($rootScope) {
                   $rootScope.app.layout.isBoxed = false;
@@ -599,37 +599,37 @@
           .state('page.login', {
               url: '/login',
               title: 'Login',
-              templateUrl: 'app/pages/login.html'
+              templateUrl: helper.basepath('pages', 'login.html')
           })
           .state('page.register', {
               url: '/register',
               title: 'Register',
-              templateUrl: 'app/pages/register.html'
+              templateUrl: helper.basepath('pages', 'register.html')
           })
           .state('page.recover', {
               url: '/recover',
               title: 'Recover',
-              templateUrl: 'app/pages/recover.html'
+              templateUrl: helper.basepath('pages', 'recover.html')
           })
           .state('page.lock', {
               url: '/lock',
               title: 'Lock',
-              templateUrl: 'app/pages/lock.html'
+              templateUrl: helper.basepath('pages', 'lock.html')
           })
           .state('page.404', {
               url: '/404',
               title: 'Not Found',
-              templateUrl: 'app/pages/404.html'
+              templateUrl: helper.basepath('pages', '404.html')
           })
           .state('page.500', {
               url: '/500',
               title: 'Server error',
-              templateUrl: 'app/pages/500.html'
+              templateUrl: helper.basepath('pages', '500.html')
           })
           .state('page.maintenance', {
               url: '/maintenance',
               title: 'Maintenance',
-              templateUrl: 'app/pages/maintenance.html'
+              templateUrl: helper.basepath('pages', 'maintenance.html')
           })
           //
           // Horizontal layout
@@ -643,7 +643,7 @@
           .state('app-h.dashboard_v2', {
               url: '/dashboard_v2',
               title: 'Dashboard v2',
-              templateUrl: helper.basepath('dashboard_v2.html'),
+              templateUrl: helper.basepath('dashboard', 'dashboard.v2.html'),
               controller: 'DashboardV2Controller',
               controllerAs: 'dash2',
               resolve: helper.resolveFor('flot-chart','flot-chart-plugins')
