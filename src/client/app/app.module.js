@@ -3,18 +3,18 @@
 
   angular.module('app', [
     'app.core',
+    'app.routes',
     // 'app.widgets',
     'app.dashboard',
-    // 'app.layout',
+    'app.layout',
     
-    'app.routes',
-    'app.sidebar',
+    // 'app.sidebar',
     'app.navsearch',
     'app.preloader',
     'app.loadingbar',
     'app.translate',
     'app.settings',
-    'app.dashboard',
+    // 'app.dashboard',
     'app.icons',
     'app.flatdoc',
     'app.notify',

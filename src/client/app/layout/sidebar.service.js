@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.sidebar')
+        .module('app.layout')
         .service('SidebarLoader', SidebarLoader);
 
     SidebarLoader.$inject = ['$http'];

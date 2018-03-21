@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('app.sidebar')
+        .module('app.layout')
         .controller('SidebarController', SidebarController);
 
     SidebarController.$inject = ['$rootScope', '$scope', '$state', 'SidebarLoader', 'Utils'];
