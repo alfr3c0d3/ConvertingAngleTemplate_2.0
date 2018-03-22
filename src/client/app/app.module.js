@@ -4,7 +4,7 @@
   angular.module('app', [
     'app.core',
     'app.routes',
-    // 'app.widgets',
+    'app.widgets',
     'app.dashboard',
     'app.layout',
     
@@ -29,7 +29,8 @@
     'app.tables',
     'app.extras',
     'app.mailbox',
-    'app.utils'
+    'app.utils',
+    'app.documentation'
   ]);
 
 })();
