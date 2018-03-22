@@ -1,14 +1,3 @@
-// (function() {
-//   'use strict';
-
-//   angular
-//     .module('app.core', [
-//       'ngAnimate', 'ngSanitize',
-//       'blocks.exception', 'blocks.logger', 'blocks.router',
-//       'ui.router', 'ngplus'
-//     ]);
-// })();
-
 (function() {
   'use strict';
 
@@ -27,7 +16,7 @@
           'ngResource',
           'tmh.dynamicLocale',
           'ui.utils',
-        //   'blocks.exception', 'blocks.logger', 'blocks.router',
+          /*'blocks.exception'*/, 'blocks.logger', 'blocks.router',
           'ngplus'
       ]);
 })();
