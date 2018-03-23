@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('app.sidebar')
+        .module('app.layout')
         .directive('sidebar', sidebar);
 
     sidebar.$inject = ['$rootScope', '$timeout', '$window', 'Utils'];

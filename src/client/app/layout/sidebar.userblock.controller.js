@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.sidebar')
+        .module('app.layout')
         .controller('UserBlockController', UserBlockController);
 
     UserBlockController.$inject = ['$scope'];

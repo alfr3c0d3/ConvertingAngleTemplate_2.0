@@ -74,7 +74,7 @@
 
   <body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat, 'offsidebar-open': app.offsidebarOpen, 'aside-toggled': app.asideToggled, 'aside-collapsed-text': app.layout.isCollapsedText}">
     <div data-preloader></div>
-    <div ng-include="'app/layout/shell.html'"></div>
+    <div class="wrapper" data-ui-view="" data-autoscroll="false"></div>
   
   <!-- build:js js/lib.js -->
   <!-- bower:js -->
@@ -107,7 +107,7 @@
   <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
   <script src="/bower_components/jquery.browser/dist/jquery.browser.js"></script>
-  <script src="/bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.js"></script>
+  <script src="/bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
   <script src="/bower_components/matchMedia/matchMedia.js"></script>
   <script src="/bower_components/modernizr/modernizr.custom.js"></script>
   <script src="/bower_components/datatables/media/js/jquery.dataTables.js"></script>
@@ -192,7 +192,6 @@
   <script src="/bower_components/requirejs/require.js"></script>
   <script src="/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
   <script src="/bower_components/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js"></script>
-  <script src="/bower_components/load-google-maps/load-google-maps.js"></script>
   <script src="/bower_components/sparkline/index.js"></script>
   <script src="/bower_components/angular-ui-sortable/sortable.js"></script>
   <script src="/bower_components/angular-summernote/dist/angular-summernote.js"></script>
@@ -212,25 +211,24 @@
   <script src="/src/client/app/elements/elements.module.js"></script>
   <script src="/src/client/app/extras/extras.module.js"></script>
   <script src="/src/client/app/forms/forms.module.js"></script>
-  <script src="/src/client/app/layout/layout.module.js"></script>
+  <script src="/src/client/app/layout/old/layout.module.js"></script>
   <script src="/src/client/app/maps/maps.module.js"></script>
   <script src="/src/client/app/modules/bootstrapui/bootstrapui.module.js"></script>
   <script src="/src/client/app/modules/colors/colors.module.js"></script>
   <script src="/src/client/app/modules/flatdoc/flatdoc.module.js"></script>
-  <script src="/src/client/app/modules/icons/icons.module.js"></script>
   <script src="/src/client/app/modules/lazyload/lazyload.module.js"></script>
   <script src="/src/client/app/modules/loadingbar/loadingbar.module.js"></script>
   <script src="/src/client/app/modules/locale/locale.module.js"></script>
   <script src="/src/client/app/modules/mailbox/mailbox.module.js"></script>
   <script src="/src/client/app/modules/navsearch/navsearch.module.js"></script>
   <script src="/src/client/app/modules/notify/notify.module.js"></script>
-  <script src="/src/client/app/modules/pages/pages.module.js"></script>
   <script src="/src/client/app/modules/panels/panels.module.js"></script>
   <script src="/src/client/app/modules/preloader/preloader.module.js"></script>
   <script src="/src/client/app/modules/settings/settings.module.js"></script>
   <script src="/src/client/app/modules/sidebar/sidebar.module.js"></script>
   <script src="/src/client/app/modules/translate/translate.module.js"></script>
   <script src="/src/client/app/modules/utils/utils.module.js"></script>
+  <script src="/src/client/app/pages/pages.module.js"></script>
   <script src="/src/client/app/routes/routes.module.js"></script>
   <script src="/src/client/app/tables/tables.module.js"></script>
   <script src="/src/client/app/widgets/widgets.module.js"></script>
@@ -285,10 +283,10 @@
   <script src="/src/client/app/forms/tags-input.directive.js"></script>
   <script src="/src/client/app/forms/uiselect.controller.js"></script>
   <script src="/src/client/app/forms/upload.controller.js"></script>
-  <script src="/src/client/app/layout/ht-sidebar.directive.js"></script>
-  <script src="/src/client/app/layout/ht-top-nav.directive.js"></script>
-  <script src="/src/client/app/layout/shell.controller.js"></script>
-  <script src="/src/client/app/layout/sidebar.controller.js"></script>
+  <script src="/src/client/app/layout/old/ht-sidebar.directive.js"></script>
+  <script src="/src/client/app/layout/old/ht-top-nav.directive.js"></script>
+  <script src="/src/client/app/layout/old/shell.controller.js"></script>
+  <script src="/src/client/app/layout/old/sidebar.controller.js"></script>
   <script src="/src/client/app/maps/maps-google-modal.controller.js"></script>
   <script src="/src/client/app/maps/maps-google.controller.js"></script>
   <script src="/src/client/app/maps/vector-map.directive.js"></script>
@@ -310,7 +308,6 @@
   <script src="/src/client/app/modules/colors/colors.contant.js"></script>
   <script src="/src/client/app/modules/colors/colors.service.js"></script>
   <script src="/src/client/app/modules/flatdoc/flatdoc.directive.js"></script>
-  <script src="/src/client/app/modules/icons/icons-skycons.directive.js"></script>
   <script src="/src/client/app/modules/lazyload/lazyload.config.js"></script>
   <script src="/src/client/app/modules/lazyload/lazyload.constants.js"></script>
   <script src="/src/client/app/modules/loadingbar/loadingbar.config.js"></script>
@@ -326,8 +323,6 @@
   <script src="/src/client/app/modules/notify/notify.controller.js"></script>
   <script src="/src/client/app/modules/notify/notify.directive.js"></script>
   <script src="/src/client/app/modules/notify/notify.service.js"></script>
-  <script src="/src/client/app/modules/pages/access-login.controller.js"></script>
-  <script src="/src/client/app/modules/pages/access-register.controller.js"></script>
   <script src="/src/client/app/modules/panels/panel-collapse.directive.js"></script>
   <script src="/src/client/app/modules/panels/panel-dismiss.directive.js"></script>
   <script src="/src/client/app/modules/panels/panel-refresh.directive.js"></script>
@@ -351,6 +346,8 @@
   <script src="/src/client/app/modules/utils/table-checkall.directive.js"></script>
   <script src="/src/client/app/modules/utils/trigger-resize.directive.js"></script>
   <script src="/src/client/app/modules/utils/utils.service.js"></script>
+  <script src="/src/client/app/pages/access-login.controller.js"></script>
+  <script src="/src/client/app/pages/access-register.controller.js"></script>
   <script src="/src/client/app/routes/route-helpers.provider.js"></script>
   <script src="/src/client/app/routes/routes.config.js"></script>
   <script src="/src/client/app/tables/angular-grid.controller.js"></script>
