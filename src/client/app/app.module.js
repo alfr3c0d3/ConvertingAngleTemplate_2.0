@@ -3,34 +3,34 @@
 
   angular.module('app', [
     'app.core',
-    'app.routes',
-    'app.widgets',
-    'app.dashboard',
-    'app.layout',
+    // 'app.routes',
     
-    // 'app.sidebar',
-    'app.navsearch',
     'app.preloader',
     'app.loadingbar',
+    'app.navsearch',
     'app.translate',
     'app.settings',
-    // 'app.dashboard',
     'app.icons',
     'app.flatdoc',
     'app.notify',
     'app.bootstrapui',
-    'app.elements',
     'app.panels',
-    'app.charts',
-    'app.forms',
     'app.locale',
-    'app.maps',
-    'app.pages',
-    'app.tables',
-    'app.extras',
     'app.mailbox',
     'app.utils',
-    'app.documentation'
+    
+    'app.layout',
+    'app.widgets',
+    'app.dashboard',
+    'app.elements',
+    'app.forms',
+    'app.charts',
+    'app.tables',
+    'app.maps',
+    'app.pages',
+    'app.extras',
+    'app.documentation',
+    
   ]);
 
 })();

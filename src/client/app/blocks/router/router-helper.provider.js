@@ -21,6 +21,8 @@
 
     $locationProvider.html5Mode(false);
 
+    $urlRouterProvider.otherwise('/app/dashboard');
+
     this.configure = function (cfg) {
       angular.extend(config, cfg);
     };

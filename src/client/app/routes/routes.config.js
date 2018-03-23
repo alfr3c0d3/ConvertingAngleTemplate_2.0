@@ -555,36 +555,36 @@
           //
           // Multiple level example
           // -----------------------------------
-          .state('app.multilevel', {
-              url: '/multilevel',
-              title: 'Multilevel',
-              template: '<h3>Multilevel Views</h3>' + '<div class="lead ba p">View @ Top Level ' + '<div ui-view=""></div> </div>'
-          })
-          .state('app.multilevel.level1', {
-              url: '/level1',
-              title: 'Multilevel - Level1',
-              template: '<div class="lead ba p">View @ Level 1' + '<div ui-view=""></div> </div>'
-          })
-          .state('app.multilevel.level1.item', {
-              url: '/item',
-              title: 'Multilevel - Level1',
-              template: '<div class="lead ba p"> Menu item @ Level 1</div>'
-          })
-          .state('app.multilevel.level1.level2', {
-              url: '/level2',
-              title: 'Multilevel - Level2',
-              template: '<div class="lead ba p">View @ Level 2'  + '<div ui-view=""></div> </div>'
-          })
-          .state('app.multilevel.level1.level2.level3', {
-              url: '/level3',
-              title: 'Multilevel - Level3',
-              template: '<div class="lead ba p">View @ Level 3' + '<div ui-view=""></div> </div>'
-          })
-          .state('app.multilevel.level1.level2.level3.item', {
-              url: '/item',
-              title: 'Multilevel - Level3 Item',
-              template: '<div class="lead ba p"> Menu item @ Level 3</div>'
-          })
+        //   .state('app.multilevel', {
+        //       url: '/multilevel',
+        //       title: 'Multilevel',
+        //       template: '<h3>Multilevel Views</h3>' + '<div class="lead ba p">View @ Top Level ' + '<div ui-view=""></div> </div>'
+        //   })
+        //   .state('app.multilevel.level1', {
+        //       url: '/level1',
+        //       title: 'Multilevel - Level1',
+        //       template: '<div class="lead ba p">View @ Level 1' + '<div ui-view=""></div> </div>'
+        //   })
+        //   .state('app.multilevel.level1.item', {
+        //       url: '/item',
+        //       title: 'Multilevel - Level1',
+        //       template: '<div class="lead ba p"> Menu item @ Level 1</div>'
+        //   })
+        //   .state('app.multilevel.level1.level2', {
+        //       url: '/level2',
+        //       title: 'Multilevel - Level2',
+        //       template: '<div class="lead ba p">View @ Level 2'  + '<div ui-view=""></div> </div>'
+        //   })
+        //   .state('app.multilevel.level1.level2.level3', {
+        //       url: '/level3',
+        //       title: 'Multilevel - Level3',
+        //       template: '<div class="lead ba p">View @ Level 3' + '<div ui-view=""></div> </div>'
+        //   })
+        //   .state('app.multilevel.level1.level2.level3.item', {
+        //       url: '/item',
+        //       title: 'Multilevel - Level3 Item',
+        //       template: '<div class="lead ba p"> Menu item @ Level 3</div>'
+        //   })
         //   //
         //   // Single Page Routes
         //   // -----------------------------------

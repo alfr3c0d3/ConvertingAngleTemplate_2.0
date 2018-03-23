@@ -3,17 +3,25 @@
 
     angular
         .module('app.documentation')
-        .config(routesConfig);
+        .run(appRun);
 
-    routesConfig.$inject = ['$stateProvider', 'RouteHelpersProvider'];
-    function routesConfig($stateProvider, helper) {
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates(routerHelper));
+    }
 
-        $stateProvider
-            .state('app.documentation', {
-                url: '/documentation',
-                title: 'Documentation',
-                templateUrl: helper.basepath('documentation', 'documentation.html'),
-                resolve: helper.resolveFor('flatdoc')
-            });
+    function getStates(routerHelper) {
+        return [
+            {
+                state: 'app.documentation',
+                config: {
+                    url: '/documentation',
+                    title: 'Documentation',
+                    templateUrl: routerHelper.basepath('documentation', 'documentation.html'),
+                    resolve: routerHelper.resolveFor('flatdoc')
+                }
+            }
+        ];
     }
 })();

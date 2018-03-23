@@ -3,25 +3,36 @@
 
     angular
         .module('app.maps')
-        .config(routesConfig);
+        .run(appRun);
 
-    routesConfig.$inject = ['$stateProvider', 'RouteHelpersProvider'];
-    function routesConfig($stateProvider, helper) {
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates(routerHelper));
+    }
 
-        $stateProvider
-            .state('app.maps-google', {
-                url: '/maps-google',
-                title: 'Maps Google',
-                templateUrl: helper.basepath('maps', 'maps-google.html'),
-                resolve: helper.resolveFor('loadGoogleMapsJS', function () { return loadGoogleMaps(); }, 'ui.map')
-            })
-            .state('app.maps-vector', {
-                url: '/maps-vector',
-                title: 'Maps Vector',
-                templateUrl: helper.basepath('maps', 'maps-vector.html'),
-                controller: 'VectorMapController',
-                controllerAs: 'vmap',
-                resolve: helper.resolveFor('vector-map', 'vector-map-maps')
-            });
+    function getStates(routerHelper) {
+        return [
+            {
+                state: 'app.maps-google',
+                config: {
+                    url: '/maps-google',
+                    title: 'Maps Google',
+                    templateUrl: routerHelper.basepath('maps', 'maps-google.html'),
+                    resolve: routerHelper.resolveFor('loadGoogleMapsJS', function () { return loadGoogleMaps(); }, 'ui.map')
+                }
+            },
+            {
+                state: 'app.maps-vector',
+                config: {
+                    url: '/maps-vector',
+                    title: 'Maps Vector',
+                    templateUrl: routerHelper.basepath('maps', 'maps-vector.html'),
+                    controller: 'VectorMapController',
+                    controllerAs: 'vmap',
+                    resolve: routerHelper.resolveFor('vector-map', 'vector-map-maps')
+                }
+            }
+        ]
     }
 })();
