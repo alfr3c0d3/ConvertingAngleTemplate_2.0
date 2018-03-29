@@ -1,8 +1,11 @@
 {
-  "name": "angle",
+  "name": "AngleTemplateArchitecture",
   "version": "0.0.1",
-  "description": "angle",
-  "authors": [],
+  "description": "Angle Template integrated with AngularJs + ASP.NET Web API",
+  "authors": [
+    "Tony Hernandez",
+    "Alfredo Morales"
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -25,7 +28,6 @@
     "angular-animate": "~1.6.4",
     "angular-touch": "~1.6.4",
     "angular-ui-router": "~0.4.2",
-    "angular-mocks": "~1.6.4",
     "ngstorage": "~0.3.11",
     "angular-ui-utils": "~3.0.0",
     "angular-sanitize": "~1.6.4",
@@ -107,6 +109,7 @@
     "angular-sweetalert": "~1.1.2",
     "angular-bootstrap-tour": "~0.3.4",
     "angular-knob": "~0.0.3",
+    "angular-mocks": "~1.6.4",
     "jquery.easy-pie-chart": "~2.1.6",
     "angular-bootstrap-colorpicker": "~3.0.26",
     "load-google-maps": "https://gist.github.com/8613939.git",
@@ -168,6 +171,11 @@
       "main": [
         "css/font-awesome.min.css"
       ]
+    },
+    "jquery.easy-pie-chart": {
+      "dependencies": {
+        "jquery": ">=1.9.0"
+      }
     }
   }
 }
