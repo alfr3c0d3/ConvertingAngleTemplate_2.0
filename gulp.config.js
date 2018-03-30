@@ -31,7 +31,13 @@ module.exports = function() {
     build: './build/',
     client: client,
     css: temp + 'styles.css',
-    fonts: [bower.directory + 'font-awesome/fonts/**/*.*', bower.directory + 'simple-line-icons/fonts/**/*.*'],
+    fonts: [
+      bower.directory + 'font-awesome/fonts/**/*.*', 
+      bower.directory + 'simple-line-icons/fonts/**/*.*', 
+      bower.directory + 'bootstrap/fonts/**/*.*', 
+      bower.directory + 'angular-ui-grid/*.+(eot|svg|woff|ttf)'
+    ],
+    // fontsUiGrid: bower.directory + 'angular-ui-grid/*.+(eot|svg|woff|ttf)',
     html: client + '**/*.html',
     htmltemplates: clientApp + '**/*.html',
     images: client + 'images/**/*.*',
@@ -88,10 +94,6 @@ module.exports = function() {
         root: 'app/',
         standalone: false
       }
-    },
-    base: {
-      js: 'base.js',
-      css: 'base.css'
     },
 
     /**

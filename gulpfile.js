@@ -80,6 +80,12 @@ gulp.task('styles', ['clean-styles'], function() {
 gulp.task('fonts', ['clean-fonts'], function() {
   log('Copying fonts');
 
+
+  //ui-grid reference fonts in style folder
+  // gulp
+  //   .src(config.fontsUiGrid)
+  //   .pipe(gulp.dest(config.build + 'styles'));
+
   return gulp.src(config.fonts).pipe(gulp.dest(config.build + 'fonts'));
 });
 
@@ -90,7 +96,10 @@ gulp.task('fonts', ['clean-fonts'], function() {
 gulp.task('images', ['clean-images'], function() {
   log('Compressing and copying images');
 
-  return gulp.src(config.images).pipe($.imagemin({ optimizationLevel: 4 })).pipe(gulp.dest(config.build + 'images'));
+  return gulp
+    .src(config.images)
+    // .pipe($.imagemin({ optimizationLevel: 4 }))
+    .pipe(gulp.dest(config.build + 'images'));
 });
 
 gulp.task('less-watcher', function() {
@@ -199,8 +208,9 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function() {
  * Optimize all files, move to a build folder,
  * and inject them into the new index.html
  * @return {Stream}
+ * Remove test 'test'
  */
-gulp.task('optimize', ['inject', 'test'], function() {
+gulp.task('optimize', ['inject'/*, 'test'*/], function() {
   log('Optimizing the js, css, and html');
 
   var assets = $.useref.assets({ searchPath: './' });
@@ -218,6 +228,7 @@ gulp.task('optimize', ['inject', 'test'], function() {
       .pipe(assets) // Gather all assets from the html with useref
       // Get the css
       .pipe(cssFilter)
+      // .pipe($.csso())
       .pipe($.minifyCss())
       .pipe(cssFilter.restore())
       // Get the custom javascript
@@ -263,7 +274,8 @@ gulp.task('clean-fonts', function(done) {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean-images', function(done) {
-  clean(config.build + 'src/client/images/**/*.*', done);
+  clean(config.build + 'images/**/*.*', done);
+  
 });
 
 /**
@@ -359,7 +371,34 @@ gulp.task('bump', function() {
  */
 gulp.task('browserSyncReload', ['optimize'], browserSync.reload);
 
+/*
+* Copy builded index to root
+*/
+gulp.task('build-root-Car', function () {
+  return gulp
+    .src(config.build + 'index.html')
+    .pipe($.replace('href="styles', 'href="build/styles'))
+    .pipe($.replace('src="js', 'src="build/js'))
+    .pipe(gulp.dest(config.root));
+});
 ////////////////
+
+/**
+ * Add watches to build and reload using browser-sync.
+ * Use this XOR the browser-sync option.files, not both.
+ * @param  {Boolean} isDev - dev or build mode
+ */
+//function addWatchForFileReload(isDev) {
+//    if (isDev) {
+//        gulp.watch([config.less], ['styles', browserSync.reload]);
+//        gulp.watch([config.client + '**/*', '!' + config.less], browserSync.reload)
+//            .on('change', function(event) { changeEvent(event); });
+//    }
+//    else {
+//        gulp.watch([config.less, config.js, config.html], ['build', browserSync.reload])
+//            .on('change', function(event) { changeEvent(event); });
+//    }
+//}
 
 /**
  * When files change, log it
@@ -454,40 +493,43 @@ function getNodeOptions(isDev) {
       "PORT": port,
       "NODE_ENV": isDev ? 'dev' : 'build'
     },
-    watch: [config.server]
+    watch: [config.server],
+    //Allow vs2015 task runner run
+    stdin: false,
+    restartable: false
   };
 }
 
-//function runNodeInspector() {
-//    log('Running node-inspector.');
-//    log('Browse to http://localhost:8080/debug?port=5858');
-//    var exec = require('child_process').exec;
-//    exec('node-inspector');
-//}
+function runNodeInspector() {
+   log('Running node-inspector.');
+   log('Browse to http://localhost:8080/debug?port=5858');
+   var exec = require('child_process').exec;
+   exec('node-inspector');
+}
 
-// /**
-//  * Start e2e tests using Protractor.
-//  * @param {function} done Callback when protractor has finished its operation.
-//  * @return {Stream}
-//  */
-// function runProtractor(done) {
-//   log('Running e2e Protractor Specs...');
+/**
+ * Start e2e tests using Protractor.
+ * @param {function} done Callback when protractor has finished its operation.
+ * @return {Stream}
+ */
+function runProtractor(done) {
+  log('Running e2e Protractor Specs...');
 
-//   return gulp
-//     .src([config.scenarios], {read: false})
-//     .pipe($.plumber())
-//     .pipe(protractor({
-//       configFile: './protractor.config.js'
-//     }))
-//     .on('error', function() {
-//       log('Protractor Error.');
-//       done();
-//     })
-//     .on('end', function() {
-//       log('Protractor End.');
-//       done();
-//     });
-// }
+  return gulp
+    .src([config.scenarios], {read: false})
+    .pipe($.plumber())
+    .pipe(protractor({
+      configFile: './protractor.config.js'
+    }))
+    .on('error', function() {
+      log('Protractor Error.');
+      done();
+    })
+    .on('end', function() {
+      log('Protractor End.');
+      done();
+    });
+}
 
 /**
  * Start BrowserSync
@@ -524,8 +566,10 @@ function startBrowserSync(isDev, specRunner) {
     },
     injectChanges: true,
     logFileChanges: true,
-    logLevel: 'info',
-    logPrefix: 'hottowel',
+    // logLevel: 'info',
+    // logPrefix: 'hottowel',
+    logLevel: 'debug',
+    logPrefix: 'angle',
     notify: true,
     reloadDelay: 0 //1000
   };
@@ -593,6 +637,12 @@ function startTests(singleRun, done) {
     }
   }
 
+  // Karma.start({
+  //   configFile: __dirname + '/karma.conf.js',
+  //   exclude: excludeFiles,
+  //   singleRun: !!singleRun
+  // }, karmaCompleted);
+
   new Karma(
     {
       configFile: __dirname + '/karma.conf.js',
@@ -641,12 +691,12 @@ function bytediffFormatter(data) {
 /**
  * Log an error message and emit the end of a task
  */
-//function errorLogger(error) {
-//    log('*** Start of Error ***');
-//    log(error);
-//    log('*** End of Error ***');
-//    this.emit('end');
-//}
+function errorLogger(error) {
+   log('*** Start of Error ***');
+   log(error);
+   log('*** End of Error ***');
+   this.emit('end');
+}
 
 /**
  * Format a number as a percentage
@@ -708,33 +758,5 @@ function notify(options) {
   _.assign(notifyOptions, options);
   notifier.notify(notifyOptions);
 }
-
-// VENDOR BUILD
-gulp.task('vendor', gulpsync.sync(['vendor:base']));
-
-// Build the base script to start the application from vendor assets
-gulp.task('vendor:base', function() {
-    log('Copying base vendor assets..');
-
-    var vendor = require('./vendor.json');
-    var jsFilter = $.filter('**/*.js', {
-        restore: true
-    });
-    var cssFilter = $.filter('**/*.css', {
-        restore: true
-    });
-
-    return gulp.src(vendor, { base: 'bower_components'})
-        .pipe($.expectFile(vendor))
-        .pipe(jsFilter)
-            .pipe($.concat(config.base.js))
-            .pipe(gulp.dest(config.temp))
-        .pipe(jsFilter.restore())
-        .pipe(cssFilter)
-            .pipe($.concat(config.base.css))
-            .pipe(gulp.dest(config.temp))
-        .pipe(cssFilter.restore())
-        ;
-});
 
 module.exports = gulp;
