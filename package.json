@@ -1,7 +1,11 @@
 {
-  "name": "angle",
-  "description": "angle Project Generated from HotTowel Angular",
-  "version": "0.0.0",
+  "name": "angle_template_architecture",
+  "version": "0.0.1",
+  "description": "Angle Template integrated with AngularJs + ASP.NET Web API",
+  "authors": [
+    "Tony Hernandez",
+    "Alfredo Morales"
+  ],
   "scripts": {
     "init": "npm install",
     "install": "bower install",
